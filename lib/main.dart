@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 /// 引入本地文件
-import 'package:flutter_dev/view/home/index.dart';
+import 'package:flutter_dev/pages/home/index.dart';
+import 'package:flutter_dev/pages/article/index.dart';
 
 /// 入口
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes:{
-
+        "news":(context) => articlePage()
       }, // 注册路由表
       home: HomePage(title: '首页'),
     );

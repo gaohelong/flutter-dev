@@ -30,11 +30,24 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              '点击加号:',
+              'increment:',
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            Text(
+              "Hello world",
+              textAlign: TextAlign.left,
+            ),
+            Text(
+              "Hello world! I'm Jack. " * 4,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            Text(
+              "Hello world",
+              textScaleFactor: 1.5,
             ),
           ],
         ),

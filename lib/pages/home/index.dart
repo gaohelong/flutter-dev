@@ -2,6 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+//Widget
+import 'package:flutter_dev/pages/animated/animated-1.dart'; //动画组件
+import 'package:flutter_dev/widgets/list.dart'; //列表组件
+
 class ScaffoldPage extends StatefulWidget {
   ScaffoldPage({Key key, this.title}) : super(key: key);
   final String title;
@@ -27,6 +31,11 @@ class _ScaffoldPageState extends State<ScaffoldPage>
     // Navigator.of(context).pushNamed("text", arguments: {"title": "Text组件"}); // 命名路由跳转
     Navigator.of(context).pushNamed("text", arguments: "Text组件"); // 命名路由跳转
   }
+
+  final dynamic _list = [
+    {"page": 'text', "title": "Text组件"},
+    {"page": 'animated-1', "title": "动画组件"},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -74,32 +83,69 @@ class _ScaffoldPageState extends State<ScaffoldPage>
         controller: _tabController,
         children: <Widget>[
           Container(
+              // 组件容器-Container
               alignment: Alignment.topLeft, // 上左对其
               child: Padding(
-                  padding: EdgeInsets.all(16.0),
+                  // Padding内填充
+                  padding: EdgeInsets.all(16.0), // 所有位置16px填充
                   child: GestureDetector(
                     // 事件监听
                     child: Container(
+                      // 组件容器-Container
                       alignment: Alignment.topLeft,
-                      color: Colors.blue,
-                      width: 200.0,
-                      height: 30.0,
+                      // color: Colors.blue,  // 背景色
+                      decoration: BoxDecoration(
+                        // 背景装饰(背景、渐变、边框等)
+                        // color: Colors.blue, // 背景颜色
+                        // color: const Color(0xFFFFFFFF), // 背景颜色
+                        // image: DecorationImage(
+                        //   // 加载网络图片
+                        //   image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+                        //   fit: BoxFit.cover,
+                        // ),
+                        gradient: RadialGradient(
+                            // 背景径向渐变
+                            colors: [Colors.red, Colors.orange],
+                            center: Alignment.topLeft,
+                            radius: .98),
+                        boxShadow: [
+                          // 卡片阴影
+                          BoxShadow(
+                              color: Colors.black54,
+                              offset: Offset(2.0, 2.0),
+                              blurRadius: 4.0)
+                        ],
+                        // border: Border.all(
+                        //   // 设置所有位置边框
+                        //   color: Colors.lightBlue,
+                        //   width: 1,
+                        // ),
+                        borderRadius: BorderRadius.circular(10.0), // 10像素圆角
+                      ),
+                      // transform: Matrix4.rotationZ(.2), // 卡片倾斜变换
+                      // width: 200.0, // 宽
+                      height: 30.0, // 高
                       child: Padding(
+                          // Padding内填充
                           padding: EdgeInsets.only(top: 6, left: 10.0),
+                          // 指定上6px, 左10px
                           child: Text(
-                            "去往文章页",
+                            "去往Text组件",
                             style: TextStyle(color: Colors.white),
                           )),
                     ),
-                    onTap: () => _goToPage("Tap"), //点击
-                    onDoubleTap: () => _goToPage("DoubleTap"), //双击
+                    onTap: () => _goToPage("Tap"),
+                    //点击
+                    onDoubleTap: () => _goToPage("DoubleTap"),
+                    //双击
                     onLongPress: () => _goToPage("LongPress"), //长按
                   ))),
           Container(
-            child: Text("欢迎来看文章"),
-          ),
+              // 组件容器-Container
+              alignment: Alignment.topLeft, // 上左对其
+              child: ListPage(list: _list)),
           Center(
-            child: Text("我是设置"),
+            child: AnimatedWidgets(), //引入动画组件
           ),
         ],
       ),

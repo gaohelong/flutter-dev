@@ -1,20 +1,24 @@
+///引入库
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:fluro/fluro.dart';
+
+///引入本地文件
+import 'package:flutter_dev/router/route.dart';
 
 //Widget
-import 'package:flutter_dev/pages/animated/animated-1.dart'; //动画组件
 import 'package:flutter_dev/widgets/list.dart'; //列表组件
 
-class ScaffoldPage extends StatefulWidget {
-  ScaffoldPage({Key key, this.title}) : super(key: key);
+class RootPage extends StatefulWidget {
+  RootPage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _ScaffoldPageState createState() => _ScaffoldPageState();
+  _RootPageState createState() => _RootPageState();
 }
 
-class _ScaffoldPageState extends State<ScaffoldPage>
+class _RootPageState extends State<RootPage>
     with SingleTickerProviderStateMixin {
   int _selectedIndex = 1;
   TabController _tabController;
@@ -28,8 +32,13 @@ class _ScaffoldPageState extends State<ScaffoldPage>
 
   void _goToPage(String text) {
     print(text);
+    String id = "100";
     // Navigator.of(context).pushNamed("text", arguments: {"title": "Text组件"}); // 命名路由跳转
-    Navigator.of(context).pushNamed("text", arguments: "Text组件"); // 命名路由跳转
+    // Navigator.of(context).pushNamed("text", arguments: "Text组件"); // 命名路由跳转
+    // Routes.router.navigateTo(context, "/text?id=${id}", replace: true); //关闭当前页面打开新页面
+    // Routes.router.navigateTo(context, "/text?id=${id}", transition: TransitionType.fadeIn); //fadeIn方式打开新页面
+    // Routes.router.navigateTo(context, "/text?id=${id}", transition: TransitionType.inFromLeft); //inFromLeft方式打开新页面
+    Routes.router.navigateTo(context, "/text?id=${id}", transition: TransitionType.inFromRight); //inFromRight方式打开新页面
   }
 
   final dynamic _list = [
@@ -145,7 +154,15 @@ class _ScaffoldPageState extends State<ScaffoldPage>
               alignment: Alignment.topLeft, // 上左对其
               child: ListPage(list: _list)),
           Center(
-            child: AnimatedWidgets(), //引入动画组件
+            child: Text(
+              "欢迎来到系统设置",
+              style: TextStyle(
+                fontSize: 16.0,
+                height: 1.2,
+                color: Colors.lightBlueAccent,
+                letterSpacing: 2.0
+              ),
+            )
           ),
         ],
       ),

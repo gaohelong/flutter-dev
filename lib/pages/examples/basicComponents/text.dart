@@ -1,7 +1,15 @@
+///引入库
 import 'package:flutter/material.dart';
+
+///本地
+import 'package:flutter_dev/router/route.dart';
 
 /// text组件
 class TextPage extends StatefulWidget {
+  TextPage({Key key, this.title, this.id}) : super(key: key);
+  final String title;
+  final String id;
+
   @override
   _TextPageState createState() => _TextPageState();
 }
@@ -12,13 +20,11 @@ class _TextPageState extends State<TextPage> {
 
   @override
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context).settings.arguments;
-    print(args); // 输出接收到的参数
-    print(args.runtimeType); // 输出数据类型
+    print(widget.id);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(args),
+        title: Text(widget.title),
       ),
       body: Center(
         child: Column(

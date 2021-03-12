@@ -1,5 +1,9 @@
-/// 引入库
+///引入库
 import 'package:flutter/material.dart';
+import 'package:fluro/fluro.dart';
+
+///引入本地文件
+import 'package:flutter_dev/router/route.dart';
 
 /// 引入本地文件
 import 'package:flutter_dev/pages/home/index.dart'; // 首页
@@ -11,21 +15,42 @@ void main() {
   runApp(MyApp());
 }
 
-/// 根
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  MyAppState createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    initLibrary();
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter dev',
       theme: mDefaultTheme,
-      routes:{
-        'text': (context) => TextPage(), //Text组件页
-        'animated-1':  (context) => AnimatedWidgets(), //动画组件页
-      }, // 注册路由表
-      home: ScaffoldPage(title: '首页'),
-      debugShowCheckedModeBanner: false,
+      // 注册路由表
+      // routes: {
+      //   '/': (context) => ScaffoldPage(title: '首页'), // 设置默认首页
+      //   'text': (context) => TextPage(), //Text组件页
+      //   'animated-1': (context) => AnimatedWidgets(), //动画组件页
+      // },
+      // 生成路由的回调函数，当导航的命名路由的时候，会使用这个来生成界面
+      onGenerateRoute: Routes.router.generator,
+      // home: ScaffoldPage(title: '首页'), // 设置默认首页
+      debugShowCheckedModeBanner: false, // 隐藏debug模式banner
     );
+  }
+
+  initLibrary() {
+    /// 初始化路由
+    final router = FluroRouter();
+    Routes.configureRoutes(router);
+    Routes.router = router;
   }
 }
 

@@ -39,15 +39,15 @@ class _DioPageState extends State<DioPage> {
         child: Container(
             child: _detail != null
                 ? GitDetailPage(detail: _detail)
-                : Text('loading')),
+                : Text('loading...')),
       ),
     );
   }
 
   void _loadData() {
     //请求数据
-    HttpApi.get(
-      url: "/",
+    HttpManage().get(
+      url: "/posts",
       params: {"id": 1},
       successCallback: (data) {
         // print(data);
@@ -56,8 +56,10 @@ class _DioPageState extends State<DioPage> {
         // print(_data.currentUserUrl);
         // print(_data.currentUserAuthorizationsHtmlUrl);
 
+        dynamic detail = data[0];
+        // print(detail);
         setState(() {
-          _detail = GitApiDetail.fromJson(data);
+          _detail = GitApiDetail.fromJson(detail);
         });
       },
     );

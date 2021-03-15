@@ -31,6 +31,7 @@ http://localhost:3000/posts/1
 ```
 
 #### 设置端口
+> 192.168.2.23->imac ip地址
 ```js
-json-server --watch db.json --port 1234
+json-server --watch test.json --port 6666 --host 192.168.2.23
 ```

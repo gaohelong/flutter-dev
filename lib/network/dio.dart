@@ -6,6 +6,9 @@ import 'dart:convert';
 import 'dart:core';
 import 'package:flutter/material.dart';
 
+///引入本地库
+import 'http_error.dart';
+
 ///基础配置
 BaseOptions options = new BaseOptions(
   // baseUrl: "https://api.github.com",
@@ -18,6 +21,9 @@ Dio _dio = new Dio(options);
 
 /// 请求成功回调
 typedef HttpSuccessCallback<T> = void Function(dynamic data);
+
+/// 请求失败回调
+typedef HttpFailureCallback = void Function(HttpError data);
 
 class HttpManage {
   static String testUrl = '/';
@@ -49,9 +55,25 @@ class HttpManage {
     ));
   }
 
-  get({ String url, Map<String, dynamic> params, HttpSuccessCallback successCallback }) async {
-    dynamic res = await _dio.get(url, queryParameters: params);
-    successCallback(res.data);
+  ///get请求
+  get({ String url, Map<String, dynamic> params, HttpSuccessCallback successCallback, HttpFailureCallback errorCallback }) async {
+    try {
+      dynamic res = await _dio.get(url, queryParameters: params);
+      // print(errorCallback);
+      if (errorCallback == null) {
+        errorCallback(HttpError("0", "请求异常!"));
+      } else {
+        successCallback(res.data);
+      }
+    } on DioError catch (e, s) {
+      if (errorCallback != null && e.type != DioErrorType.CANCEL) {
+        errorCallback(HttpError.dioError(e));
+      }
+    } catch (e, s) {
+      if (errorCallback != null) {
+        errorCallback(HttpError(HttpError.UNKNOWN, "网络异常，请稍后重试！"));
+      }
+    }
   }
 }
 

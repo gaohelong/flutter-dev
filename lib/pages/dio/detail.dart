@@ -62,6 +62,9 @@ class _DioPageState extends State<DioPage> {
           _detail = GitApiDetail.fromJson(detail);
         });
       },
+      errorCallback: (error) {
+        print('error: ${error}');
+      },
     );
   }
 }

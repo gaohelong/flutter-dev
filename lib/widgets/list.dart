@@ -12,7 +12,7 @@ class ListPage extends StatelessWidget {
 
   ///数据列表转换成组件
   listWidget(context) {
-    List<Widget> _widgetList = List<Widget>();
+    List<Widget> _widgetList = [];
 
     for (int i = 0; i < list.length; i++) {
       var _item = list[i];
@@ -61,7 +61,22 @@ class ListPage extends StatelessWidget {
                 ),
                 onTap: () => {
                   // Navigator.of(context).pushNamed(_item['page'], arguments: _item['title']) //命名路由跳转
-                  Routes.router.navigateTo(context, "/animated-1?id=66", transition: TransitionType.inFromRight) //inFromRight方式打开新页面
+                  if (_item['page'] == 'animated-1')
+                    {
+                      Routes.router.navigateTo(context, "/animated-1?id=66",
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
+                  else if (_item['page'] == 'dio')
+                    {
+                      Routes.router.navigateTo(context, "/dio?id=67",
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    } else {
+                      Routes.router.navigateTo(context, "/text?id=67",
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
                 },
               ))));
     }

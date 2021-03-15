@@ -32,6 +32,8 @@ dependencies:
   shared_preferences: ^0.5.8
   # 企业级路由
   fluro: ^1.7.3
+  # 网络请求
+  dio: ^3.0.10
 
 dev_dependencies:
   flutter_test:

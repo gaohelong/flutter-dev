@@ -13,6 +13,8 @@ class Routes {
   static String textPage = '/text';
   //动画组件页
   static String animated1Page = '/animated-1';
+  //dio网络请求实例页
+  static String dioPage = '/dio';
 
   // 配置路由
   static void configureRoutes(FluroRouter router) {
@@ -26,5 +28,6 @@ class Routes {
     router.define(root, handler: rootHandler);
     router.define(textPage, handler: textPageHandler);
     router.define(animated1Page, handler: AnimatedPageHandler);
+    router.define(dioPage, handler: dioPageHandler);
   }
 }

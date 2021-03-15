@@ -42,8 +42,9 @@ class _RootPageState extends State<RootPage>
   }
 
   final dynamic _list = [
-    {"page": 'text', "title": "Text组件"},
-    {"page": 'animated-1', "title": "动画组件"},
+    {"page": "text", "title": "Text组件"},
+    {"page": "animated-1", "title": "动画组件"},
+    {"page": "dio", "title": "dio网络请求实例"},
   ];
 
   @override

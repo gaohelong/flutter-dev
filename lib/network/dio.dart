@@ -61,9 +61,9 @@ class HttpManage {
       dynamic res = await _dio.get(url, queryParameters: params);
       // print(errorCallback);
       if (errorCallback == null) {
-        errorCallback(HttpError("0", "请求异常!"));
+        errorCallback(HttpError("0", "请求异常!")); //异常处理
       } else {
-        successCallback(res.data);
+        successCallback(res.data); //成功后调
       }
     } on DioError catch (e, s) {
       if (errorCallback != null && e.type != DioErrorType.CANCEL) {

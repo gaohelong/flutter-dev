@@ -205,7 +205,7 @@ class MyDrawer extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: ClipOval(
                       child: Image.asset(
-                        "images/avatar@2x.png",
+                        "assets/images/avatar@2x.png",
                         width: 80,
                       ),
                     ),

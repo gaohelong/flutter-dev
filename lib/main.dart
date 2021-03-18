@@ -5,11 +5,6 @@ import 'package:fluro/fluro.dart';
 ///引入本地文件
 import 'package:flutter_dev/router/route.dart';
 
-/// 引入本地文件
-import 'package:flutter_dev/pages/home/index.dart'; // 首页
-import 'package:flutter_dev/pages/examples/basicComponents/text.dart'; // Text组件
-import 'package:flutter_dev/pages/animated/animated-1.dart'; //动画组件
-
 /// 入口
 void main() {
   runApp(MyApp());

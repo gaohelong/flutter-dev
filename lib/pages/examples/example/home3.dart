@@ -4,18 +4,22 @@ import '../../../tools/moon_extensions.dart';
 import '../../../tools/moon_size_extension.dart';
 import '../example/list-t1.dart';
 
-class TestHome2Page extends StatefulWidget {
-  TestHome2Page({Key key}) : super(key: key);
+class TestHome3Page extends StatefulWidget {
+  TestHome3Page({Key key, this.title, this.params}) : super(key: key);
+  final String title;
+  Map<String, dynamic> params;
 
   @override
-  _TestHome2PageState createState() => _TestHome2PageState();
+  _TestHome3PageState createState() => _TestHome3PageState();
 }
 
-class _TestHome2PageState extends State<TestHome2Page> {
+class _TestHome3PageState extends State<TestHome3Page> {
   final String popWindow = '0'; //是否展示弹窗
 
   @override
   Widget build(BuildContext context) {
+    print("${widget.params},${widget.params['id']}");
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,

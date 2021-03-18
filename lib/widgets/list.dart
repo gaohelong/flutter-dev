@@ -72,7 +72,33 @@ class ListPage extends StatelessWidget {
                       Routes.router.navigateTo(context, "/dio?id=67",
                           transition: TransitionType.inFromRight)
                       //inFromRight方式打开新页面
-                    } else {
+                    }
+                  else if (_item['page'] == 'example1')
+                    {
+                      Routes.router.navigateTo(context, "/example1?id=68",
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
+                  else if (_item['page'] == 'example2')
+                    {
+                      Routes.router.navigateTo(context, "/example2?id=69",
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
+                  else if (_item['page'] == 'example3')
+                    {
+                      Routes.router.navigateTo(context, "/example3?id=70",
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
+                  else if (_item['page'] == 'example4')
+                    {
+                      Routes.router.navigateTo(context, "/example4?id=71",
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
+                  else
+                    {
                       Routes.router.navigateTo(context, "/text?id=67",
                           transition: TransitionType.inFromRight)
                       //inFromRight方式打开新页面

@@ -5,7 +5,9 @@ import '../../../tools/moon_size_extension.dart';
 import '../example/list-t1.dart';
 
 class TestHome2Page extends StatefulWidget {
-  TestHome2Page({Key key}) : super(key: key);
+  TestHome2Page({Key key, this.title, this.params}) : super(key: key);
+  final String title;
+  Map<String, dynamic> params;
 
   @override
   _TestHome2PageState createState() => _TestHome2PageState();
@@ -22,11 +24,13 @@ class _TestHome2PageState extends State<TestHome2Page> {
 
   @override
   Widget build(BuildContext context) {
+    print("${widget.params},${widget.params['id']}");
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "首页开发-布局练习2",
+            widget.title,
             style: TextStyle(
                 color: ColorString("373737"),
                 fontSize: 40.scaleW,

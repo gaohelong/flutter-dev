@@ -16,6 +16,12 @@ class Routes {
   //dio网络请求实例页
   static String dioPage = '/dio';
 
+  //练习
+  static String testHomePage = '/example1';
+  static String testHome2Page = '/example2';
+  static String testHome3Page = '/example3';
+  static String testHome4Page = '/example4';
+
   // 配置路由
   static void configureRoutes(FluroRouter router) {
     // 路径没找到 Handler
@@ -29,5 +35,11 @@ class Routes {
     router.define(textPage, handler: textPageHandler);
     router.define(animated1Page, handler: AnimatedPageHandler);
     router.define(dioPage, handler: dioPageHandler);
+
+    //练习
+    router.define(testHomePage, handler: testHomePageHandler);
+    router.define(testHome2Page, handler: testHome2PageHandler);
+    router.define(testHome3Page, handler: testHome3PageHandler);
+    router.define(testHome4Page, handler: testHome4PageHandler);
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 
 ///引入本地文件
 import 'package:flutter_dev/router/route.dart';
@@ -45,10 +46,16 @@ class _RootPageState extends State<RootPage>
     {"page": "text", "title": "Text组件"},
     {"page": "animated-1", "title": "动画组件"},
     {"page": "dio", "title": "dio网络请求实例"},
+    {"page": "example1", "title": "首页开发-布局练习1"},
+    {"page": "example2", "title": "首页开发-布局练习2"},
+    {"page": "example3", "title": "首页开发-布局练习3"},
+    {"page": "example4", "title": "首页开发-布局练习4"},
   ];
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context); //初始化ScreenUtil
+
     return Scaffold(
       /// 导航
       appBar: AppBar(

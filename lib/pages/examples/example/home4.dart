@@ -5,7 +5,9 @@ import '../../../tools/moon_size_extension.dart';
 import '../example/list-t1.dart';
 
 class TestHome4Page extends StatefulWidget {
-  TestHome4Page({Key key}) : super(key: key);
+  TestHome4Page({Key key, this.title, this.params}) : super(key: key);
+  final String title;
+  Map<String, dynamic> params;
 
   @override
   _TestHome4PageState createState() => _TestHome4PageState();
@@ -22,6 +24,8 @@ class _TestHome4PageState extends State<TestHome4Page> {
 
   @override
   Widget build(BuildContext context) {
+    print("${widget.params},${widget.params['id']}");
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,

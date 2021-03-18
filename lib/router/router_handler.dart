@@ -63,5 +63,5 @@ Handler testHome3PageHandler = Handler(
 Handler testHome4PageHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       String id = params['id']?.first;
-      return TestHome4Page(title: '首页开发-布局练习4', params: {"id": id});
+      return TestHome4Page(title: '智能家居', params: {"id": id});
     });

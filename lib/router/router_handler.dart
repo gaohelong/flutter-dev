@@ -13,6 +13,10 @@ import '../pages/examples/example/home1.dart';
 import '../pages/examples/example/home2.dart';
 import '../pages/examples/example/home3.dart';
 import '../pages/examples/example/home4.dart';
+import '../pages/examples/example/home5.dart';
+import '../pages/examples/example/home6.dart';
+import '../pages/examples/example/home7.dart';
+import '../pages/examples/example/home8.dart';
 
 //首页
 Handler rootHandler = Handler(
@@ -65,3 +69,32 @@ Handler testHome4PageHandler = Handler(
       String id = params['id']?.first;
       return TestHome4Page(title: '智能家居', params: {"id": id});
     });
+
+Handler testHome5PageHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      String id = params['id']?.first;
+      return TestHome5Page(title: '滚动监听', params: {"id": id});
+    });
+
+Handler testHome6PageHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      String id = params['id']?.first;
+      return TestHome6Page(title: '吸顶', params: {"id": id});
+    });
+
+Handler testHome7PageHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      String id = params['id']?.first;
+      // GlobalKey key = GlobalKey(debugLabel: 'testHome7'); //传key
+
+      return TestHome7Page(title: '点击获取组件大小', params: {"id": id});
+    });
+
+Handler testHome8PageHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      String id = params['id']?.first;
+      // GlobalKey key = GlobalKey(debugLabel: 'testHome7'); //传key
+
+      return TestHome8Page(title: 'CustomScrollView', params: {"id": id});
+    });
+

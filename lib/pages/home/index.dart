@@ -50,6 +50,10 @@ class _RootPageState extends State<RootPage>
     {"page": "example2", "title": "首页开发-布局练习2"},
     {"page": "example3", "title": "首页开发-布局练习3"},
     {"page": "example4", "title": "首页开发-布局练习4"},
+    {"page": "example5", "title": "滚动监听"},
+    {"page": "example6", "title": "吸顶", "url": "/example6?id=73"},
+    {"page": "example7", "title": "点击获取组件大小", "url": "/example7?id=74"},
+    {"page": "example8", "title": "CustomScrollView", "url": "/example8?id=74"},
   ];
 
   @override

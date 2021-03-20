@@ -6,7 +6,7 @@ class Counter with ChangeNotifier, DiagnosticableTreeMixin {
 
   int get count => _count;
 
-  void increment() {
+  increment() {
     _count++;
     notifyListeners();
   }

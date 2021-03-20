@@ -71,6 +71,20 @@ class _TestHome11PageState extends State<TestHome11Page> {
             slivers: [
               SliverToBoxAdapter(
                 child: Container(
+                  width: 100,
+                  height: 30,
+                  color: Colors.red,
+                  child: RaisedButton.icon(
+                    icon: Icon(Icons.send),
+                    label: Text("自增"),
+                    onPressed: () => {
+                      context.read<Counter>().increment()
+                    },
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Container(
                   height: 200,
                   color: Colors.blue,
                   child: Text(

@@ -38,7 +38,6 @@ class MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    context.read<Counter>().increment;
 
     return MaterialApp(
       title: 'Flutter dev',

@@ -55,7 +55,7 @@ class ListPage extends StatelessWidget {
                           top: 6.0, left: 10.0, bottom: 6.0, right: 10.0),
                       // 指定上6px, 左10px
                       child: Text(
-                        'goTo->' + _item["title"],
+                        'Chick->' + _item["title"],
                         style: TextStyle(fontSize: 14.0, color: Colors.white),
                       )),
                 ),
@@ -121,6 +121,30 @@ class ListPage extends StatelessWidget {
                           transition: TransitionType.inFromRight)
                       //inFromRight方式打开新页面
                     }
+                  else if (_item['page'] == 'example9')
+                    {
+                      Routes.router.navigateTo(context, _item['url'],
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
+                  else if (_item['page'] == 'example10')
+                    {
+                      Routes.router.navigateTo(context, _item['url'],
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
+                  else if (_item['page'] == 'example11')
+                    {
+                      Routes.router.navigateTo(context, _item['url'],
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
+                  else if (_item['page'] == 'example12')
+                    {
+                      Routes.router.navigateTo(context, _item['url'],
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
                   else
                     {
                       Routes.router.navigateTo(context, "/text?id=67",
@@ -138,7 +162,7 @@ class ListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
         shrinkWrap: true,
-        padding: const EdgeInsets.only(top: 6.0),
+        padding: const EdgeInsets.only(top: 6.0, bottom: 40.0),
         children: listWidget(context));
   }
 }

@@ -25,6 +25,10 @@ class Routes {
   static String testHome6Page = '/example6';
   static String testHome7Page = '/example7';
   static String testHome8Page = '/example8';
+  static String testHome9Page = '/example9';
+  static String testHome10Page = '/example10';
+  static String testHome11Page = '/example11';
+  static String testHome12Page = '/example12';
 
   // 配置路由
   static void configureRoutes(FluroRouter router) {
@@ -49,5 +53,9 @@ class Routes {
     router.define(testHome6Page, handler: testHome6PageHandler);
     router.define(testHome7Page, handler: testHome7PageHandler);
     router.define(testHome8Page, handler: testHome8PageHandler);
+    router.define(testHome9Page, handler: testHome9PageHandler);
+    router.define(testHome10Page, handler: testHome10PageHandler);
+    router.define(testHome11Page, handler: testHome11PageHandler);
+    router.define(testHome12Page, handler: testHome12PageHandler);
   }
 }

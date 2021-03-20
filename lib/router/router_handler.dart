@@ -17,6 +17,10 @@ import '../pages/examples/example/home5.dart';
 import '../pages/examples/example/home6.dart';
 import '../pages/examples/example/home7.dart';
 import '../pages/examples/example/home8.dart';
+import '../pages/examples/example/home9.dart';
+import '../pages/examples/example/home10.dart';
+import '../pages/examples/example/home11.dart';
+import '../pages/examples/example/home12.dart';
 
 //首页
 Handler rootHandler = Handler(
@@ -87,7 +91,7 @@ Handler testHome7PageHandler = Handler(
       String id = params['id']?.first;
       // GlobalKey key = GlobalKey(debugLabel: 'testHome7'); //传key
 
-      return TestHome7Page(title: '点击获取组件大小', params: {"id": id});
+      return TestHome7Page(title: '获取组件信息', params: {"id": id});
     });
 
 Handler testHome8PageHandler = Handler(
@@ -96,5 +100,37 @@ Handler testHome8PageHandler = Handler(
       // GlobalKey key = GlobalKey(debugLabel: 'testHome7'); //传key
 
       return TestHome8Page(title: 'CustomScrollView', params: {"id": id});
+    });
+
+Handler testHome9PageHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      String id = params['id']?.first;
+      // GlobalKey key = GlobalKey(debugLabel: 'testHome7'); //传key
+
+      return TestHome9Page(title: '状态管理', params: {"id": id});
+    });
+
+Handler testHome10PageHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      String id = params['id']?.first;
+      // GlobalKey key = GlobalKey(debugLabel: 'testHome7'); //传key
+
+      return TestHome10Page(title: '数据共享(InheritedWidget)', params: {"id": id});
+    });
+
+Handler testHome11PageHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      String id = params['id']?.first;
+      // GlobalKey key = GlobalKey(debugLabel: 'testHome7'); //传key
+
+      return TestHome11Page(title: 'Provider', params: {"id": id});
+    });
+
+Handler testHome12PageHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      String id = params['id']?.first;
+      // GlobalKey key = GlobalKey(debugLabel: 'testHome7'); //传key
+
+      return TestHome12Page(title: 'EventBus', params: {"id": id});
     });
 

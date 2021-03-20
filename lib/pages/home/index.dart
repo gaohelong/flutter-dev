@@ -52,8 +52,12 @@ class _RootPageState extends State<RootPage>
     {"page": "example4", "title": "首页开发-布局练习4"},
     {"page": "example5", "title": "滚动监听"},
     {"page": "example6", "title": "吸顶", "url": "/example6?id=73"},
-    {"page": "example7", "title": "点击获取组件大小", "url": "/example7?id=74"},
-    {"page": "example8", "title": "CustomScrollView", "url": "/example8?id=74"},
+    {"page": "example7", "title": "获取组件信息", "url": "/example7?id=74"},
+    {"page": "example8", "title": "CustomScrollView", "url": "/example8?id=75"},
+    {"page": "example9", "title": "状态管理", "url": "/example9?id=76"},
+    {"page": "example10", "title": "数据共享(InheritedWidget)", "url": "/example11?id=77"},
+    {"page": "example11", "title": "Provider", "url": "/example9?id=78"},
+    {"page": "example12", "title": "EventBus", "url": "/example10?id=79"},
   ];
 
   @override
@@ -70,8 +74,8 @@ class _RootPageState extends State<RootPage>
         bottom: TabBar(
           controller: _tabController,
           tabs: <Widget>[
-            Tab(icon: Icon(Icons.airplanemode_active), text: "太空"),
-            Tab(icon: Icon(Icons.article_outlined), child: Text("文章")),
+            Tab(icon: Icon(Icons.airplanemode_active), text: "银河系"),
+            Tab(icon: Icon(Icons.whatshot_outlined), child: Text("训练中心")),
             Tab(icon: Icon(Icons.brightness_5_sharp))
           ],
         ),
@@ -162,9 +166,11 @@ class _RootPageState extends State<RootPage>
                     onLongPress: () => _goToPage("LongPress"), //长按
                   ))),
           Container(
-              // 组件容器-Container
-              alignment: Alignment.topLeft, // 上左对其
-              child: ListPage(list: _list)),
+            // 组件容器-Container
+            // padding: EdgeInsets.only(left: 16.0, top: 16.0, right: 16.0),
+            // margin: EdgeInsets.only(bottom: 30.0),
+            alignment: Alignment.topLeft, // 上左对其
+            child: ListPage(list: _list)),
           Center(
             child: Text(
               "欢迎来到系统设置",

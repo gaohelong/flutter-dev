@@ -2,23 +2,20 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
-
 ///引入本地文件
 import '../../../tools/moon_extensions.dart';
 import '../../../tools/moon_size_extension.dart';
-import '../../../provider/Counter.dart';
 
-class TestHome11Page extends StatefulWidget {
-  TestHome11Page({Key key, this.title, this.params}) : super(key: key);
+class TestHome13Page extends StatefulWidget {
+  TestHome13Page({Key key, this.title, this.params}) : super(key: key);
   final String title;
   Map<String, dynamic> params;
 
   @override
-  _TestHome11PageState createState() => _TestHome11PageState();
+  _TestHome13PageState createState() => _TestHome13PageState();
 }
 
-class _TestHome11PageState extends State<TestHome11Page> {
+class _TestHome13PageState extends State<TestHome13Page> {
 
   @override
   void initState() {
@@ -73,10 +70,6 @@ class _TestHome11PageState extends State<TestHome11Page> {
                 child: Container(
                   height: 200,
                   color: Colors.blue,
-                  child: Text(
-                    // '${Provider.of<Counter>(context).count}'
-                    '${context.read<Counter>().count}'
-                  )
                 ),
               ),
               // SliverAppBar(
@@ -86,9 +79,6 @@ class _TestHome11PageState extends State<TestHome11Page> {
                 child: Container(
                   height: 200,
                   color: Colors.red,
-                  child: Text(
-                    '${Provider.of<Counter>(context).count}'
-                  ),
                 ),
               ),
               // SliverPadding(),

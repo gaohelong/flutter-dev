@@ -2,12 +2,26 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 
+import 'package:provider/provider.dart';
+import 'provider/Counter.dart';
+
 ///引入本地文件
 import 'package:flutter_dev/router/route.dart';
 
 /// 入口
+// void main() {
+//   runApp(MyApp());
+// }
+
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<Counter>(create: (_) => Counter()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -21,10 +35,11 @@ class MyAppState extends State<MyApp> {
     super.initState();
     initLibrary();
   }
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    context.read<Counter>().increment;
+
     return MaterialApp(
       title: 'Flutter dev',
       theme: mDefaultTheme,

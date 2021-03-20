@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 ///引入本地文件
 import '../../../tools/moon_extensions.dart';
 import '../../../tools/moon_size_extension.dart';
-import 'list-t3.dart';
 
 class TestHome10Page extends StatefulWidget {
   TestHome10Page({Key key, this.title, this.params}) : super(key: key);
@@ -156,6 +155,7 @@ class _TestHome10PageState extends State<TestHome10Page> {
             // ),
             SliverToBoxAdapter(
               child: Container(
+                key: _centerKey, //设置key.
                 height: 900,
                 color: Colors.red,
               ),

@@ -93,6 +93,7 @@ class _TestHome9PageState extends State<TestHome9Page> {
     });
   }
 
+  //传递给子组件，子组件调用此方法通知父组件更新状态.
   void _onBtnChildChange(val) {
     print('_onBtnChildChange_${val}');
     setState(() {

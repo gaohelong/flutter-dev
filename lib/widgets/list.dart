@@ -145,6 +145,12 @@ class ListPage extends StatelessWidget {
                           transition: TransitionType.inFromRight)
                       //inFromRight方式打开新页面
                     }
+                  else if (_item['page'] == 'example13')
+                    {
+                      Routes.router.navigateTo(context, _item['url'],
+                          transition: TransitionType.inFromRight)
+                      //inFromRight方式打开新页面
+                    }
                   else
                     {
                       Routes.router.navigateTo(context, "/text?id=67",

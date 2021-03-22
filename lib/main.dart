@@ -2,8 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 
+//Provider
 import 'package:provider/provider.dart';
 import 'provider/Counter.dart';
+import 'provider/Config.dart';
 
 ///引入本地文件
 import 'package:flutter_dev/router/route.dart';
@@ -15,9 +17,11 @@ import 'package:flutter_dev/router/route.dart';
 
 void main() {
   runApp(
+    //全局Provider.
     MultiProvider(
       providers: [
         ChangeNotifierProvider<Counter>(create: (_) => Counter()),
+        ChangeNotifierProvider<Config>(create: (_) => Config()),
       ],
       child: MyApp(),
     ),

@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import '../../../tools/moon_extensions.dart';
 import '../../../tools/moon_size_extension.dart';
 import '../../../provider/Counter.dart';
+import '../../../provider/Config.dart';
 
 class TestHome11Page extends StatefulWidget {
   TestHome11Page({Key key, this.title, this.params}) : super(key: key);
@@ -44,7 +45,7 @@ class _TestHome11PageState extends State<TestHome11Page> {
 
   @override
   Widget build(BuildContext context) {
-    print("${widget.params},${widget.params['id']}");
+    // print("${widget.params},${widget.params['id']}");
 
     return Scaffold(
         appBar: AppBar(
@@ -85,11 +86,25 @@ class _TestHome11PageState extends State<TestHome11Page> {
               ),
               SliverToBoxAdapter(
                 child: Container(
+                  width: 100,
+                  height: 30,
+                  color: Colors.red,
+                  child: RaisedButton.icon(
+                    icon: Icon(Icons.send),
+                    label: Text("求和"),
+                    onPressed: () => {
+                      context.read<Counter>().total(3, new Random().nextInt(100))
+                    },
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Container(
                   height: 200,
                   color: Colors.blue,
                   child: Text(
                     // '${Provider.of<Counter>(context).count}'
-                    '${context.read<Counter>().count}'
+                    '${context.read<Counter>().count}-${context.read<Counter>().sum}'
                   )
                 ),
               ),
@@ -101,7 +116,30 @@ class _TestHome11PageState extends State<TestHome11Page> {
                   height: 200,
                   color: Colors.red,
                   child: Text(
-                    '${Provider.of<Counter>(context).count}'
+                    '${Provider.of<Counter>(context).count}-${Provider.of<Counter>(context).sum}'
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Container(
+                  width: 100,
+                  height: 30,
+                  color: Colors.red,
+                  child: RaisedButton.icon(
+                    icon: Icon(Icons.send),
+                    label: Text("改变全局title"),
+                    onPressed: () => {
+                      context.read<Config>().setTitle('世界家居${Random().nextInt(100)}')
+                    },
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Container(
+                  height: 200,
+                  color: Colors.black12,
+                  child: Text(
+                      '${Provider.of<Config>(context).title}'
                   ),
                 ),
               ),

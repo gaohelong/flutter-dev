@@ -22,6 +22,7 @@ import '../pages/examples/example/home10.dart';
 import '../pages/examples/example/home11.dart';
 import '../pages/examples/example/home12.dart';
 import '../pages/examples/example/home13.dart';
+import '../pages/examples/example/home14.dart';
 
 //首页
 Handler rootHandler = Handler(
@@ -140,6 +141,15 @@ Handler testHome13PageHandler = Handler(
       String id = params['id']?.first;
       // GlobalKey key = GlobalKey(debugLabel: 'testHome7'); //传key
 
-      return TestHome13Page(title: 'EventBus', params: {"id": id});
+      return TestHome13Page(title: 'Provider-实例3', params: {"id": id});
     });
+
+Handler testHome14PageHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      String id = params['id']?.first;
+      // GlobalKey key = GlobalKey(debugLabel: 'testHome7'); //传key
+
+      return TestHome14Page(title: 'EventBus', params: {"id": id});
+    });
+
 

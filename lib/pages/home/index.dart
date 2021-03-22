@@ -58,7 +58,8 @@ class _RootPageState extends State<RootPage>
     {"page": "example10", "title": "数据共享(InheritedWidget)", "url": "/example10?id=77"},
     {"page": "example11", "title": "Provider-实例1", "url": "/example11?id=78"},
     {"page": "example12", "title": "Provider-实例2", "url": "/example12?id=78"},
-    {"page": "example13", "title": "EventBus", "url": "/example13?id=79"},
+    {"page": "example13", "title": "Provider-实例3", "url": "/example13?id=79"},
+    {"page": "example14", "title": "EventBus", "url": "/example14?id=80"},
   ];
 
   @override

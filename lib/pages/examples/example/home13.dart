@@ -2,9 +2,13 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+
 ///引入本地文件
 import '../../../tools/moon_extensions.dart';
 import '../../../tools/moon_size_extension.dart';
+import '../../../provider/Counter.dart';
+import '../../../provider/Config.dart';
 
 class TestHome13Page extends StatefulWidget {
   TestHome13Page({Key key, this.title, this.params}) : super(key: key);
@@ -16,7 +20,6 @@ class TestHome13Page extends StatefulWidget {
 }
 
 class _TestHome13PageState extends State<TestHome13Page> {
-
   @override
   void initState() {
     super.initState();
@@ -41,7 +44,8 @@ class _TestHome13PageState extends State<TestHome13Page> {
 
   @override
   Widget build(BuildContext context) {
-    print("${widget.params},${widget.params['id']}");
+    // print("${widget.params},${widget.params['id']}");
+    print('home12 Widget build');
 
     return Scaffold(
         appBar: AppBar(
@@ -64,27 +68,63 @@ class _TestHome13PageState extends State<TestHome13Page> {
           elevation: 5,
         ),
         //父容器
-        body: CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                child: Container(
-                  height: 200,
-                  color: Colors.blue,
-                ),
+        body: CustomScrollView(slivers: [
+          SliverToBoxAdapter(
+            child: Container(
+              width: 100,
+              height: 30,
+              color: Colors.red,
+              child: RaisedButton.icon(
+                icon: Icon(Icons.send),
+                label: Text("自增"),
+                onPressed: () => {context.read<Counter>().increment()},
               ),
-              // SliverAppBar(
-              //   title: Text('我是SliverAppBar'),
-              // ),
-              SliverToBoxAdapter(
-                child: Container(
-                  height: 200,
-                  color: Colors.red,
-                ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              width: 100,
+              height: 30,
+              color: Colors.red,
+              child: Text(
+                "${new Random().nextInt(100)}"
               ),
-              // SliverPadding(),
-              // SliverFixedExtentList(),
-            ]
-        ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              padding: EdgeInsets.all(16.0),
+              height: 300,
+              color: Colors.lightBlueAccent,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    // '${Provider.of<Counter>(context).count}-${Provider.of<Counter>(context).sum}',
+                    '姓名: cloud-${new Random().nextInt(100)}'
+                  ),
+                  Text(
+                    // '${Provider.of<Counter>(context).count}'
+                    '年龄: 18-${new Random().nextInt(100)}'
+                  ),
+                  Consumer<Counter>( //只有Consumer中的widget才会重绘.
+                    builder: (context, single, child) {
+                      print('我重绘了');
+                      return Column(
+                        children: [
+                          Text(
+                            // 'cuont: ${Provider.of<Counter>(context, listen: false).count}' //只有Consumer中widget会发生改变
+                            'cuont: ${Provider.of<Counter>(context).count}' //只有Consumer中widget会发生改变
+                          ),
+                        ],
+                      );
+                    }
+                  ),
+                ],
+              )
+            ),
+          ),
+        ]),
         backgroundColor: ColorString("F5F6FA"));
   }
 }

@@ -2,6 +2,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+//Event bus
+import '../../../utils/eventBusUtils.dart';
+
 ///引入本地文件
 import '../../../tools/moon_extensions.dart';
 import '../../../tools/moon_size_extension.dart';
@@ -37,6 +40,15 @@ class _TestHome14PageState extends State<TestHome14Page> {
   Offset getOffsetKey(GlobalKey key) {
     RenderBox renderBox = key.currentContext.findRenderObject();
     return renderBox.localToGlobal(Offset.zero);
+  }
+
+  _onLogin() {
+    print('_onLogin');
+    bus.emit("login", {
+      "name": "cloud",
+      "age": "30",
+      "sex": "man"
+    });
   }
 
   @override
@@ -75,6 +87,18 @@ class _TestHome14PageState extends State<TestHome14Page> {
               // SliverAppBar(
               //   title: Text('我是SliverAppBar'),
               // ),
+              SliverToBoxAdapter(
+                child: Container(
+                  width: 100,
+                  height: 30,
+                  color: Colors.red,
+                  child: RaisedButton.icon(
+                    icon: Icon(Icons.send),
+                    label: Text("Login123"),
+                    onPressed: () => _onLogin(),
+                  ),
+                ),
+              ),
               SliverToBoxAdapter(
                 child: Container(
                   height: 200,

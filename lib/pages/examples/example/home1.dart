@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+//Event bus
+import '../../../utils/eventBusUtils.dart';
+
 import '../../../tools/moon_extensions.dart';
 import '../../../tools/moon_size_extension.dart';
 import '../example/list-t1.dart';
@@ -19,6 +22,12 @@ class _TestHomePageState extends State<TestHomePage> {
   @override
   Widget build(BuildContext context) {
     print("${widget.params},${widget.params['id']}");
+
+    //Event bus-login
+    bus.on("login", (arg) {
+      print('------');
+      print(arg);
+    });
 
     return Scaffold(
         appBar: AppBar(

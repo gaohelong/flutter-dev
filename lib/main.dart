@@ -7,6 +7,9 @@ import 'package:provider/provider.dart';
 import 'provider/Counter.dart';
 import 'provider/Config.dart';
 
+//Event bus
+import 'utils/eventBusUtils.dart';
+
 ///引入本地文件
 import 'package:flutter_dev/router/route.dart';
 
